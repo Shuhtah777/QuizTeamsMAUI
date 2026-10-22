@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="QuizTeamsMAUI.Views.GamePage"
+    Title="Вікторина"
+    BackgroundColor="#F2F4F8">
+
+    <Grid Padding="24">
+        <VerticalStackLayout
+            x:Name="ReadyPanel"
+            Spacing="20"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            MaximumWidthRequest="650">
+
+            <Label
+                Text="Готові до битви?"
+                FontSize="32"
+                FontAttributes="Bold"
+                TextColor="#172033"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                x:Name="ReadyTeamLabel"
+                FontSize="25"
+                FontAttributes="Bold"
+                TextColor="#3157D5"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                Text="Передайте пристрій учасникам цієї команди. Коли всі готові, натискайте кнопку."
+                FontSize="17"
+                TextColor="#667085"
+                HorizontalTextAlignment="Center"/>
+
+            <Button
+                x:Name="StartButton"
+                Text="Почати раунд"
+                FontSize="20"
+                BackgroundColor="#17834A"
+                TextColor="White"
+                Clicked="OnStartClicked"/>
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            x:Name="QuestionPanel"
+            IsVisible="False"
+            Spacing="18"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            MaximumWidthRequest="800">
+
+            <Label
+                x:Name="CurrentTeamLabel"
+                FontSize="22"
+                FontAttributes="Bold"
+                TextColor="#3157D5"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                x:Name="TimerLabel"
+                Text="01:00"
+                FontSize="42"
+                FontAttributes="Bold"
+                TextColor="#C33E4D"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                x:Name="QuestionNumberLabel"
+                FontSize="15"
+                TextColor="#667085"
+                HorizontalTextAlignment="Center"/>
+
+            <Frame
+                BackgroundColor="White"
+                BorderColor="#E0E5EF"
+                CornerRadius="18"
+                Padding="28">
+
+                <Label
+                    x:Name="QuestionLabel"
+                    Text="Запитання з'явиться тут"
+                    FontSize="27"
+                    TextColor="#172033"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
+            </Frame>
+
+            <Grid
+                ColumnDefinitions="*,*"
+                ColumnSpacing="14">
+
+                <Button
+                    Grid.Column="0"
+                    Text="ТАК"
+                    FontSize="23"
+                    BackgroundColor="#17834A"
+                    TextColor="White"
+                    HeightRequest="75"
+                    Clicked="OnYesClicked"/>
+
+                <Button
+                    Grid.Column="1"
+                    Text="НІ"
+                    FontSize="23"
+                    BackgroundColor="#C33E4D"
+                    TextColor="White"
+                    HeightRequest="75"
+                    Clicked="OnNoClicked"/>
+
+            </Grid>
+
+            <Label
+                x:Name="ScoreLabel"
+                FontSize="17"
+                TextColor="#344054"
+                HorizontalTextAlignment="Center"/>
+
+        </VerticalStackLayout>
+
+        <ScrollView
+            x:Name="ResultsPanel"
+            IsVisible="False">
+
+            <VerticalStackLayout
+                Spacing="16"
+                Padding="10">
+
+                <Label
+                    x:Name="ResultsTitle"
+                    Text="Результати гри"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    TextColor="#172033"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label
+                    x:Name="WinnerLabel"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#17834A"
+                    HorizontalTextAlignment="Center"/>
+
+                <VerticalStackLayout
+                    x:Name="ResultsList"
+                    Spacing="10"/>
+
+                <Button
+                    Text="Завершити гру"
+                    BackgroundColor="#53627C"
+                    TextColor="White"
+                    Clicked="OnFinishClicked"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

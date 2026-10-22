@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="QuizTeamsMAUI.Views.TeamSetupPage"
+    Title="Налаштування команд"
+    BackgroundColor="#F2F4F8">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="24"
+            Spacing="18"
+            MaximumWidthRequest="900"
+            HorizontalOptions="Center">
+
+            <Label
+                Text="Налаштування команд"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#172033"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                Text="Кожна команда обирає п'ять тем. Переможець визначиться за кількістю правильних відповідей."
+                FontSize="16"
+                TextColor="#667085"
+                HorizontalTextAlignment="Center"/>
+
+            <Frame
+                BackgroundColor="White"
+                BorderColor="#E0E5EF"
+                CornerRadius="14"
+                Padding="18">
+
+                <VerticalStackLayout Spacing="10">
+                    <Label
+                        Text="Кількість команд"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="#172033"/>
+
+                    <Picker
+                        x:Name="TeamCountPicker"
+                        Title="Оберіть кількість команд"
+                        TextColor="#172033"
+                        TitleColor="#667085"
+                        BackgroundColor="White"
+                        SelectedIndexChanged="OnTeamCountChanged"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <VerticalStackLayout
+                x:Name="TeamCards"
+                Spacing="16"/>
+
+            <Button
+                Text="Зберегти налаштування"
+                BackgroundColor="#17834A"
+                TextColor="White"
+                FontSize="17"
+                Clicked="OnSaveTeamsClicked"/>
+
+            <Button
+                Text="Назад до редактора"
+                BackgroundColor="#53627C"
+                TextColor="White"
+                Clicked="OnBackClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

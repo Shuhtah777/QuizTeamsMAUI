@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="QuizTeamsMAUI.Views.QuestionEditorPage"
+    Title="Редактор запитань"
+    BackgroundColor="#F2F4F8">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="24"
+            Spacing="16"
+            MaximumWidthRequest="850"
+            HorizontalOptions="Center">
+
+            <Label
+                Text="Редактор вікторини"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#172033"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                Text="Створюй власні теми та запитання"
+                FontSize="16"
+                TextColor="#667085"
+                HorizontalTextAlignment="Center"/>
+
+            <Frame
+                BackgroundColor="White"
+                BorderColor="#E0E5EF"
+                CornerRadius="14"
+                Padding="18">
+
+                <VerticalStackLayout Spacing="12">
+                    <Label
+                        Text="Нова тема"
+                        FontSize="21"
+                        FontAttributes="Bold"
+                        TextColor="#3157D5"/>
+
+                    <Entry
+                        x:Name="TopicEntry"
+                        Placeholder="Наприклад: Minecraft, Кіно, Меми"
+                        TextColor="#172033"
+                        PlaceholderColor="#667085"
+                        BackgroundColor="#FFFFFF"/>
+
+                    <Button
+                        Text="Додати тему"
+                        BackgroundColor="#3157D5"
+                        TextColor="White"
+                        Clicked="OnAddTopicClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+
+
+            <Frame
+                BackgroundColor="White"
+                BorderColor="#E0E5EF"
+                CornerRadius="14"
+                Padding="18">
+
+                <VerticalStackLayout Spacing="12">
+                    <Label
+                        Text="Нове запитання"
+                        FontSize="21"
+                        FontAttributes="Bold"
+                        TextColor="#3157D5"/>
+
+                    <Picker
+                        x:Name="TopicPicker"
+                        Title="Оберіть тему"
+                        TextColor="#172033"
+                        TitleColor="#667085"
+                        BackgroundColor="#FFFFFF"/>
+
+                    <Editor
+                        x:Name="QuestionEntry"
+                        Placeholder="Введіть текст запитання..."
+                        TextColor="#172033"
+                        PlaceholderColor="#667085"
+                        BackgroundColor="#FFFFFF"
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="90"/>
+
+                    <Label
+                        Text="Правильна відповідь"
+                        FontSize="15"
+                        TextColor="#344054"/>
+
+                    <Picker
+                        x:Name="AnswerPicker"
+                        Title="Оберіть відповідь"
+                        TextColor="#172033"
+                        TitleColor="#667085"
+                        BackgroundColor="#FFFFFF">
+                        <Picker.Items>
+                            <x:String>Так</x:String>
+                            <x:String>Ні</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Button
+                        Text="Зберегти запитання"
+                        BackgroundColor="#17834A"
+                        TextColor="White"
+                        Clicked="OnAddQuestionClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+
+
+            <Label
+                Text="Наявні запитання"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="#172033"/>
+
+            <VerticalStackLayout
+                x:Name="QuestionsList"
+                Spacing="10"/>
+
+            <Button
+                Text="Назад"
+                BackgroundColor="#53627C"
+                TextColor="White"
+                Clicked="OnBackClicked"/>
+
+            <Button
+                Text="Налаштувати команди"
+                BackgroundColor="#3157D5"
+                TextColor="White"
+                Clicked="OnTeamSetupClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
